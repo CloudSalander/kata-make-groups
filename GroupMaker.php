@@ -21,10 +21,20 @@ class GroupMaker {
     public function enterGroupSize(): void {
         //TODO: Validate this input
         $this->groupSize = intval(readline(self::ENTER_GROUP_SIZE_MSG));
-        var_dump($this->groupSize);
-
+        $con = 0;
     }
-    public function generateGroups(): array {}
-    public function showGroups(): void {}
+    public function generateGroups(): array {
+        $groups = [];
+        $con = 0;
+        foreach($this->students as $student) {
+            array_push($groups[$con%$this->groupSize],$student);
+            ++$con;
+        }
+    }
+    private function generateEmptyGroups() {
+        for($con = 0; $con < $this->groupSize;++$i) {
+            $this->groupSize 
+        }
+    }
 }
 ?>

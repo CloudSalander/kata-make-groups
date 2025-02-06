@@ -5,5 +5,6 @@ $groupMaker = new GroupMaker();
 
 $groupMaker->enterStudents();
 $groupMaker->enterGroupSize();
+$groupMaker->generateGroups();
 
 ?>
