@@ -26,8 +26,12 @@ class GroupMaker {
     }
     public function generateGroups(): void {
         $this->groupedStudents = $this->generateEmptyGroups();
+        
+        $students_shuffle = $this->students;
+        shuffle($students_shuffle);
+      
         $con = 0;
-        foreach($this->students as $student) {
+        foreach($students_shuffle as $student) {
             array_push($this->groupedStudents[$con%$this->groupSize],$student);
             ++$con;
         }
