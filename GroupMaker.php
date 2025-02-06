@@ -31,14 +31,28 @@ class GroupMaker {
             array_push($this->groupedStudents[$con%$this->groupSize],$student);
             ++$con;
         }
-        var_dump($this->groupedStudents);
     }
+
     private function generateEmptyGroups(): array {
         $groups = [];
         for($con = 0; $con < $this->groupSize; ++$con) {
             $groups[$con] = [];
         }
         return $groups;
+    }
+    
+    public function showGeneratedGroups(): void {
+        for($i=0; $i < count($this->groupedStudents); ++$i) {
+            $this->printGroup($this->groupedStudents[$i], $i);
+        }
+    }
+
+    private function printGroup(array $studentGroup, int $count): void {
+        echo "Group ".($count+1).":".PHP_EOL;
+        foreach($studentGroup as $name) {
+            echo $name." ";
+        }
+        echo PHP_EOL;     
     }
 }
 ?>
